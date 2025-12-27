@@ -45,12 +45,87 @@
             line-height: 1.6;
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 24px;
+        }
+
+        /* Animated Stars Background */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration, 3s) ease-in-out infinite;
+            animation-delay: var(--delay, 0s);
+            opacity: 0;
+        }
+
+        .star.large {
+            width: 3px;
+            height: 3px;
+            box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: var(--max-opacity, 0.8); transform: scale(1); }
+        }
+
+        /* Floating elements */
+        .floating-element {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.15;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .floating-element.rocket {
+            font-size: 2rem;
+            top: 20%;
+            right: 10%;
+            animation-duration: 25s;
+            transform: rotate(-45deg);
+        }
+
+        .floating-element.planet {
+            font-size: 3rem;
+            bottom: 30%;
+            left: 5%;
+            animation-duration: 30s;
+            animation-delay: -5s;
+        }
+
+        .floating-element.star-icon {
+            font-size: 1.5rem;
+            top: 40%;
+            left: 15%;
+            animation-duration: 18s;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(var(--rotation, 0deg)); }
+            25% { transform: translateY(-20px) rotate(calc(var(--rotation, 0deg) + 5deg)); }
+            50% { transform: translateY(-10px) rotate(var(--rotation, 0deg)); }
+            75% { transform: translateY(-25px) rotate(calc(var(--rotation, 0deg) - 5deg)); }
         }
 
         /* Header */
@@ -60,7 +135,7 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(26, 22, 20, 0.8);
+            background: rgba(26, 22, 20, 0.85);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             z-index: 100;
@@ -104,7 +179,7 @@
 
         /* Hero */
         .hero {
-            padding: 140px 0 80px;
+            padding: 160px 0 80px;
             text-align: center;
             position: relative;
         }
@@ -112,13 +187,19 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 60px;
+            top: 80px;
             left: 50%;
             transform: translateX(-50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 168, 150, 0.12) 0%, transparent 65%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(0, 168, 150, 0.15) 0%, rgba(232, 165, 75, 0.05) 40%, transparent 65%);
             pointer-events: none;
+            animation: pulse-glow 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
+            50% { opacity: 0.7; transform: translateX(-50%) scale(1.05); }
         }
 
         .hero-content {
@@ -138,6 +219,12 @@
             font-weight: 600;
             margin-bottom: 28px;
             border: 1px solid rgba(0, 168, 150, 0.2);
+            animation: badge-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes badge-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 168, 150, 0.1); }
+            50% { box-shadow: 0 0 30px rgba(0, 168, 150, 0.25); }
         }
 
         .hero-badge svg {
@@ -155,6 +242,13 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero p {
@@ -183,12 +277,30 @@
             text-decoration: none;
             color: var(--text-primary);
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .store-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .store-btn:hover::before {
+            left: 100%;
         }
 
         .store-btn:hover {
             background: var(--bg-elevated);
             border-color: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 168, 150, 0.15);
         }
 
         .store-btn svg {
@@ -218,6 +330,8 @@
         /* Features */
         .features {
             padding: 80px 0;
+            position: relative;
+            z-index: 1;
         }
 
         .section-header {
@@ -262,12 +376,30 @@
             padding: 28px 24px;
             border: 1px solid var(--glass-border);
             transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--teal), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .feature-card:hover {
             background: var(--glass-hover);
             border-color: rgba(0, 168, 150, 0.2);
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
         }
 
         .feature-icon {
@@ -298,6 +430,8 @@
         /* Stats */
         .stats {
             padding: 60px 0;
+            position: relative;
+            z-index: 1;
         }
 
         .stats-container {
@@ -305,6 +439,24 @@
             border-radius: 20px;
             padding: 48px 32px;
             border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 168, 150, 0.1) 0%, transparent 50%);
+            animation: orbit 20s linear infinite;
+        }
+
+        @keyframes orbit {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .stats-grid {
@@ -312,6 +464,8 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 32px;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         @media (max-width: 700px) {
@@ -340,6 +494,8 @@
         .cta {
             padding: 80px 0 100px;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-card {
@@ -359,6 +515,18 @@
             right: 0;
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(0, 168, 150, 0.4), transparent);
+        }
+
+        .cta-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(232, 165, 75, 0.08) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .cta-badge {
@@ -399,6 +567,8 @@
         footer {
             padding: 32px 0;
             border-top: 1px solid var(--glass-border);
+            position: relative;
+            z-index: 1;
         }
 
         .footer-content {
@@ -440,7 +610,11 @@
             }
 
             .hero {
-                padding: 120px 0 60px;
+                padding: 180px 0 60px;
+            }
+
+            .floating-element {
+                display: none;
             }
 
             .cta-card {
@@ -455,6 +629,14 @@
     </style>
 </head>
 <body>
+    <!-- Animated stars background -->
+    <div class="stars-container" id="stars"></div>
+
+    <!-- Floating space elements -->
+    <div class="floating-element rocket" style="--rotation: -45deg;">&#128640;</div>
+    <div class="floating-element planet" style="--rotation: 0deg;">&#127758;</div>
+    <div class="floating-element star-icon" style="--rotation: 0deg;">&#11088;</div>
+
     <header>
         <div class="container header-content">
             <a href="/" class="logo">Tastronaut</a>
@@ -473,7 +655,7 @@
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                     236 Countries to Explore
                 </div>
-                <h1>Travel the World Through Your Kitchen</h1>
+                <h1>Travel the <span class="highlight">World</span> Through Your Kitchen</h1>
                 <p>Spin the globe, discover authentic recipes from every country, and turn your cooking into an unforgettable adventure.</p>
                 <div class="store-buttons">
                     <a href="#" class="store-btn">
@@ -506,32 +688,32 @@
                 </div>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">🌍</div>
+                        <div class="feature-icon">&#127758;</div>
                         <h3>Spin the Globe</h3>
                         <p>Discover your next culinary destination with a spin. Land on any of 236 countries.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🍳</div>
-                        <h3>Cook & Track</h3>
-                        <p>Follow step-by-step recipes and build your culinary passport as you cook.</p>
+                        <div class="feature-icon">&#128640;</div>
+                        <h3>Launch Your Journey</h3>
+                        <p>Blast off into a world of flavors. Follow step-by-step recipes from every corner of Earth.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🏆</div>
+                        <div class="feature-icon">&#127942;</div>
                         <h3>Unlock Achievements</h3>
                         <p>Earn badges as you explore continents and complete cooking challenges.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">✨</div>
+                        <div class="feature-icon">&#11088;</div>
                         <h3>Beautiful Design</h3>
                         <p>An elegant interface with stunning food photography and smooth animations.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🌐</div>
+                        <div class="feature-icon">&#127757;</div>
                         <h3>Multiple Languages</h3>
                         <p>Available in English and Spanish, with more languages coming soon.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">📏</div>
+                        <div class="feature-icon">&#128203;</div>
                         <h3>Metric & Imperial</h3>
                         <p>Switch between measurement systems with one tap.</p>
                     </div>
@@ -605,5 +787,26 @@
             <p class="copyright">&copy; 2025 Polar Parallel LLC</p>
         </div>
     </footer>
+
+    <script>
+        // Generate random stars
+        function createStars() {
+            const container = document.getElementById('stars');
+            const starCount = 80;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star' + (Math.random() > 0.85 ? ' large' : '');
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.setProperty('--delay', (Math.random() * 5) + 's');
+                star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
+                star.style.setProperty('--max-opacity', (0.4 + Math.random() * 0.5).toString());
+                container.appendChild(star);
+            }
+        }
+
+        createStars();
+    </script>
 </body>
 </html>
