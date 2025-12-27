@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Tastronaut</title>
+    <meta name="description" content="Terms of Service for Tastronaut mobile application.">
+    <link rel="canonical" href="https://tastronaut.app/terms/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #1A1614;
+            --bg-surface: #2A2520;
+            --teal: #00A896;
+            --gold: #F0B86E;
+            --text-primary: #F5F2EF;
+            --text-secondary: #B8B0A8;
+            --glass: rgba(255, 255, 255, 0.04);
+            --glass-hover: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+        header {
+            padding: 16px 0;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(26, 22, 20, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        nav { display: flex; gap: 4px; }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+            background: var(--glass-hover);
+        }
+
+        main { padding: 120px 0 80px; }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.25rem;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-size: 0.9rem;
+        }
+
+        .intro {
+            background: var(--bg-surface);
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-bottom: 40px;
+            border-left: 3px solid var(--teal);
+        }
+
+        .intro p {
+            color: var(--text-primary);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-top: 36px;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+        }
+
+        p { margin-bottom: 14px; color: var(--text-secondary); font-size: 0.95rem; }
+        p.legal { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.02em; }
+
+        ul, ol {
+            margin-bottom: 14px;
+            padding-left: 20px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        li { margin-bottom: 8px; }
+
+        a { color: var(--teal); text-decoration: none; transition: opacity 0.2s; }
+        a:hover { opacity: 0.8; }
+
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover { color: var(--teal); opacity: 1; }
+
+        .copyright { color: var(--text-secondary); font-size: 0.8rem; }
+
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; gap: 12px; }
+            h1 { font-size: 1.75rem; }
+            .footer-content { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">Tastronaut</a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/privacy/">Privacy</a>
+                <a href="/terms/">Terms</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Terms of Service</h1>
+            <p class="last-updated">Last updated: January 1, 2025</p>
+
+            <div class="intro">
+                <p>Please read these Terms of Service ("Terms") carefully before using the Tastronaut mobile application operated by Polar Parallel LLC ("we", "our", or "us").</p>
+            </div>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>By downloading, installing, or using Tastronaut ("the App"), you agree to be bound by these Terms. If you do not agree to these Terms, do not use the App.</p>
+
+            <h2>2. Description of Service</h2>
+            <p>Tastronaut is a mobile application that provides recipes from around the world, allowing users to discover cuisines, track their cooking progress, and unlock achievements. The App offers both free and premium content.</p>
+
+            <h2>3. User Accounts</h2>
+            <p>The App does not require account creation. Your progress and preferences are stored locally on your device. If you delete the App or switch devices, your progress may be lost. We are not responsible for any loss of data.</p>
+
+            <h2>4. In-App Purchases</h2>
+            <p>The App offers a premium upgrade that unlocks access to all countries and recipes. By making a purchase:</p>
+            <ul>
+                <li>You agree to pay the price displayed at the time of purchase</li>
+                <li>Payment will be charged to your Apple App Store or Google Play account</li>
+                <li>The premium upgrade is a one-time, lifetime purchase valid for the purchasing account</li>
+                <li>Refunds are handled by Apple or Google according to their respective policies</li>
+            </ul>
+
+            <h2>5. License to Use</h2>
+            <p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for your personal, non-commercial use. This license does not include:</p>
+            <ul>
+                <li>Modifying or copying the App's code or content</li>
+                <li>Using the App for any commercial purpose</li>
+                <li>Attempting to extract the source code or reverse engineer the App</li>
+                <li>Removing any copyright or proprietary notices</li>
+                <li>Transferring your license to another person</li>
+            </ul>
+
+            <h2>6. Recipe Content</h2>
+            <p>The recipes provided in the App are for informational and entertainment purposes. While we strive for accuracy:</p>
+            <ul>
+                <li>We do not guarantee that recipes are suitable for any dietary restrictions or allergies</li>
+                <li>Users are responsible for verifying ingredients against their own dietary needs</li>
+                <li>Cooking times and temperatures may vary based on equipment and conditions</li>
+                <li>We are not liable for any adverse reactions or outcomes from following recipes</li>
+            </ul>
+
+            <h2>7. User Conduct</h2>
+            <p>When using the App, including the feedback feature, you agree not to:</p>
+            <ul>
+                <li>Submit false, misleading, or spam content</li>
+                <li>Upload any content that is unlawful, harmful, or offensive</li>
+                <li>Attempt to interfere with the App's functionality</li>
+                <li>Use the App in any way that violates applicable laws</li>
+            </ul>
+
+            <h2>8. Intellectual Property</h2>
+            <p>The App and its original content, features, and functionality are owned by Polar Parallel LLC and are protected by international copyright, trademark, and other intellectual property laws.</p>
+
+            <h2>9. Third-Party Services</h2>
+            <p>The App may contain links to third-party websites or services. We are not responsible for the content or practices of any third-party sites. Your use of third-party services is at your own risk.</p>
+
+            <h2>10. Disclaimer of Warranties</h2>
+            <p class="legal">The App is provided "as is" and "as available" without warranties of any kind, either express or implied. We do not warrant that the App will be uninterrupted, error-free, or free of harmful components.</p>
+
+            <h2>11. Limitation of Liability</h2>
+            <p class="legal">To the maximum extent permitted by law, Polar Parallel LLC shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the App.</p>
+            <p>Our total liability for any claims shall not exceed the amount you paid for the App or in-app purchases in the twelve (12) months preceding the claim.</p>
+
+            <h2>12. Indemnification</h2>
+            <p>You agree to indemnify and hold harmless Polar Parallel LLC from any claims, damages, losses, or expenses arising from your use of the App or violation of these Terms.</p>
+
+            <h2>13. Modifications to the App</h2>
+            <p>We reserve the right to modify, suspend, or discontinue the App at any time without notice.</p>
+
+            <h2>14. Changes to Terms</h2>
+            <p>We may revise these Terms at any time. By continuing to use the App after changes are posted, you accept the modified Terms.</p>
+
+            <h2>15. Governing Law</h2>
+            <p>These Terms shall be governed by and construed in accordance with the laws of the State of Delaware, United States.</p>
+
+            <h2>16. Severability</h2>
+            <p>If any provision of these Terms is found to be unenforceable, the remaining provisions shall remain in full force and effect.</p>
+
+            <h2>17. Entire Agreement</h2>
+            <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and Polar Parallel LLC regarding the use of the App.</p>
+
+            <h2>18. Contact Us</h2>
+            <p>If you have any questions about these Terms, please contact us:</p>
+            <ul>
+                <li>Email: <a href="mailto:support@tastronaut.app">support@tastronaut.app</a></li>
+                <li>Company: Polar Parallel LLC</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/privacy/">Privacy Policy</a>
+                <a href="/terms/">Terms of Service</a>
+                <a href="mailto:support@tastronaut.app">Contact</a>
+            </div>
+            <p class="copyright">&copy; 2025 Polar Parallel LLC</p>
+        </div>
+    </footer>
+</body>
+</html>

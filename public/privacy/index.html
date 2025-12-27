@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Tastronaut</title>
+    <meta name="description" content="Privacy Policy for Tastronaut mobile application.">
+    <link rel="canonical" href="https://tastronaut.app/privacy/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #1A1614;
+            --bg-surface: #2A2520;
+            --teal: #00A896;
+            --gold: #F0B86E;
+            --text-primary: #F5F2EF;
+            --text-secondary: #B8B0A8;
+            --glass: rgba(255, 255, 255, 0.04);
+            --glass-hover: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+        header {
+            padding: 16px 0;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(26, 22, 20, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        nav { display: flex; gap: 4px; }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+            background: var(--glass-hover);
+        }
+
+        main { padding: 120px 0 80px; }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.25rem;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-size: 0.9rem;
+        }
+
+        .intro {
+            background: var(--bg-surface);
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-bottom: 40px;
+            border-left: 3px solid var(--teal);
+        }
+
+        .intro p {
+            color: var(--text-primary);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-top: 36px;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+        }
+
+        p { margin-bottom: 14px; color: var(--text-secondary); font-size: 0.95rem; }
+
+        ul {
+            margin-bottom: 14px;
+            padding-left: 20px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        li { margin-bottom: 8px; }
+        li strong { color: var(--text-primary); }
+
+        a { color: var(--teal); text-decoration: none; transition: opacity 0.2s; }
+        a:hover { opacity: 0.8; }
+
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover { color: var(--teal); opacity: 1; }
+
+        .copyright { color: var(--text-secondary); font-size: 0.8rem; }
+
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; gap: 12px; }
+            h1 { font-size: 1.75rem; }
+            .footer-content { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">Tastronaut</a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/privacy/">Privacy</a>
+                <a href="/terms/">Terms</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last updated: January 1, 2025</p>
+
+            <div class="intro">
+                <p>Polar Parallel LLC ("we", "our", or "us") operates the Tastronaut mobile application. This page informs you of our policies regarding the collection, use, and disclosure of personal information when you use our app.</p>
+            </div>
+
+            <h2>Information We Collect</h2>
+            <p>We collect minimal information to provide and improve our service:</p>
+            <ul>
+                <li><strong>Device Information:</strong> We collect an anonymous device identifier to associate your feedback and issue reports. This identifier cannot be used to personally identify you.</li>
+                <li><strong>Usage Data:</strong> We store your cooking progress, achievements, and preferences locally on your device. This data is not transmitted to our servers unless you submit feedback.</li>
+                <li><strong>Feedback Data:</strong> When you voluntarily submit feedback or report an issue, we collect the content of your submission along with your device type, app version, and language preference.</li>
+            </ul>
+
+            <h2>How We Use Your Information</h2>
+            <p>We use the collected information for the following purposes:</p>
+            <ul>
+                <li>To provide and maintain the app functionality</li>
+                <li>To respond to your feedback and improve our recipes</li>
+                <li>To fix bugs and technical issues you report</li>
+                <li>To understand general usage patterns (aggregate, non-personal data)</li>
+            </ul>
+
+            <h2>Data Storage</h2>
+            <p>Your cooking progress, achievements, and app preferences are stored locally on your device using encrypted local storage. This data remains on your device and is not synced to our servers.</p>
+            <p>Feedback and issue reports you submit are stored on secure cloud servers (Cloudflare) located in the United States. This data is retained for up to 2 years.</p>
+
+            <h2>Third-Party Services</h2>
+            <p>Our app uses the following third-party services:</p>
+            <ul>
+                <li><strong>RevenueCat:</strong> For processing in-app purchases. See their <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</li>
+                <li><strong>Cloudflare:</strong> For hosting recipe images and processing feedback. See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's Privacy Policy</a>.</li>
+                <li><strong>Apple App Store / Google Play Store:</strong> For app distribution and purchase processing.</li>
+            </ul>
+
+            <h2>Children's Privacy</h2>
+            <p>Our app does not knowingly collect personal information from children under the age of 13. The app is designed for general audiences and contains no features that specifically target children.</p>
+
+            <h2>Data Retention</h2>
+            <p>We retain feedback and issue report data for up to 2 years. You may request deletion by contacting us. Local data can be deleted by uninstalling the app.</p>
+
+            <h2>Your Rights</h2>
+            <p>Depending on your location, you may have certain rights regarding your personal information:</p>
+            <ul>
+                <li>The right to access the personal information we hold about you</li>
+                <li>The right to request correction of inaccurate information</li>
+                <li>The right to request deletion of your information</li>
+                <li>The right to withdraw consent for data processing</li>
+            </ul>
+
+            <h2>Security</h2>
+            <p>We implement appropriate technical and organizational measures to protect your personal information. However, no method of transmission over the Internet is 100% secure.</p>
+
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
+
+            <h2>Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us:</p>
+            <ul>
+                <li>Email: <a href="mailto:support@tastronaut.app">support@tastronaut.app</a></li>
+                <li>Company: Polar Parallel LLC</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/privacy/">Privacy Policy</a>
+                <a href="/terms/">Terms of Service</a>
+                <a href="mailto:support@tastronaut.app">Contact</a>
+            </div>
+            <p class="copyright">&copy; 2025 Polar Parallel LLC</p>
+        </div>
+    </footer>
+</body>
+</html>
