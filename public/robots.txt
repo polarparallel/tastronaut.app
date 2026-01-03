@@ -1,0 +1,11 @@
+# Tastronaut Robots.txt
+# https://tastronaut.app
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tastronaut.app/sitemap.xml
+
+# Disallow sensitive paths
+Disallow: /api/
