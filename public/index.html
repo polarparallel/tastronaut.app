@@ -128,8 +128,6 @@
     }
     </script>
     <style>
-        body { opacity: 0; transition: opacity 0.2s ease-in; }
-        body.fonts-loaded { opacity: 1; }
         @font-face {
             font-family: 'Playfair Display';
             src: url('https://assets.tastronaut.app/fonts/PlayfairDisplay-Regular.woff2') format('woff2');
@@ -186,7 +184,7 @@
         }
 
         body {
-            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--bg-dark);
             color: var(--text-primary);
             line-height: 1.6;
@@ -305,7 +303,7 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
             font-size: 1.5rem;
             font-weight: 600;
             color: var(--text-primary);
@@ -391,7 +389,7 @@
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
             font-size: clamp(2.75rem, 6vw, 4rem);
             font-weight: 600;
             margin-bottom: 20px;
@@ -500,7 +498,7 @@
         }
 
         .section-header h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
             font-size: clamp(1.75rem, 4vw, 2.25rem);
             font-weight: 600;
             margin-bottom: 12px;
@@ -646,7 +644,7 @@
         }
 
         .stat-item h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
             font-size: clamp(2rem, 4vw, 2.75rem);
             font-weight: 600;
             color: var(--teal);
@@ -713,7 +711,7 @@
         }
 
         .cta h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
             font-size: clamp(1.75rem, 4vw, 2.25rem);
             margin-bottom: 12px;
             letter-spacing: -0.02em;
@@ -894,7 +892,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--teal);
@@ -1047,12 +1045,6 @@
     </style>
 </head>
 <body>
-    <script>
-        var reveal = function() { document.body.classList.add('fonts-loaded'); };
-        if (document.fonts) document.fonts.ready.then(reveal);
-        setTimeout(reveal, 1000);
-    </script>
-
     <!-- Animated stars background -->
     <div class="stars-container" id="stars"></div>
 

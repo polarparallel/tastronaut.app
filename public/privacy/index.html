@@ -10,8 +10,6 @@
     <link rel="preload" href="https://assets.tastronaut.app/fonts/PlayfairDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://assets.tastronaut.app/fonts/Nunito-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <style>
-        body { opacity: 0; transition: opacity 0.2s ease-in; }
-        body.fonts-loaded { opacity: 1; }
         @font-face {
             font-family: 'Playfair Display';
             src: url('https://assets.tastronaut.app/fonts/PlayfairDisplay-Bold.woff2') format('woff2');
@@ -41,7 +39,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--bg-dark);
             color: var(--text-primary);
             line-height: 1.7;
@@ -71,7 +69,7 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
             font-size: 1.5rem;
             font-weight: 600;
             color: var(--text-primary);
@@ -98,7 +96,7 @@
         main { padding: 120px 0 80px; }
 
         h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
             font-size: 2.25rem;
             margin-bottom: 8px;
             letter-spacing: -0.02em;
@@ -184,11 +182,6 @@
     </style>
 </head>
 <body>
-    <script>
-        var reveal = function() { document.body.classList.add('fonts-loaded'); };
-        if (document.fonts) document.fonts.ready.then(reveal);
-        setTimeout(reveal, 1000);
-    </script>
     <header>
         <div class="header-content">
             <a href="/" class="logo">Tastronaut</a>
