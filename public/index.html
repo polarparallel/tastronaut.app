@@ -122,10 +122,37 @@
         ]
     }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Self-hosted fonts on CDN */
+        @font-face {
+            font-family: 'Playfair Display';
+            src: url('https://assets.tastronaut.app/fonts/PlayfairDisplay-Regular.woff2') format('woff2');
+            font-weight: 400 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Playfair Display';
+            src: url('https://assets.tastronaut.app/fonts/PlayfairDisplay-Bold.woff2') format('woff2');
+            font-weight: 600 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Nunito';
+            src: url('https://assets.tastronaut.app/fonts/Nunito-Regular.woff2') format('woff2');
+            font-weight: 400 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Nunito';
+            src: url('https://assets.tastronaut.app/fonts/Nunito-SemiBold.woff2') format('woff2');
+            font-weight: 600 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
             /* App theme colors */
             --bg-dark: #1A1614;
