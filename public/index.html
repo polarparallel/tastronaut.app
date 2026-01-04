@@ -28,6 +28,11 @@
     <meta name="application-name" content="Tastronaut">
     <link rel="canonical" href="https://tastronaut.app">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <link rel="preload" href="https://assets.tastronaut.app/fonts/PlayfairDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://assets.tastronaut.app/fonts/PlayfairDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://assets.tastronaut.app/fonts/Nunito-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://assets.tastronaut.app/fonts/Nunito-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="apple-touch-icon" href="https://assets.tastronaut.app/images/44fcac7289c6.webp">
 
     <!-- Structured Data -->
@@ -123,7 +128,8 @@
     }
     </script>
     <style>
-        /* Self-hosted fonts on CDN */
+        body { opacity: 0; transition: opacity 0.2s ease-in; }
+        body.fonts-loaded { opacity: 1; }
         @font-face {
             font-family: 'Playfair Display';
             src: url('https://assets.tastronaut.app/fonts/PlayfairDisplay-Regular.woff2') format('woff2');
@@ -1041,6 +1047,12 @@
     </style>
 </head>
 <body>
+    <script>
+        var reveal = function() { document.body.classList.add('fonts-loaded'); };
+        if (document.fonts) document.fonts.ready.then(reveal);
+        setTimeout(reveal, 1000);
+    </script>
+
     <!-- Animated stars background -->
     <div class="stars-container" id="stars"></div>
 

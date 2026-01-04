@@ -7,10 +7,25 @@
     <meta name="description" content="Terms of Service for Tastronaut mobile application.">
     <link rel="canonical" href="https://tastronaut.app/terms/">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://assets.tastronaut.app/fonts/PlayfairDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://assets.tastronaut.app/fonts/Nunito-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <style>
+        body { opacity: 0; transition: opacity 0.2s ease-in; }
+        body.fonts-loaded { opacity: 1; }
+        @font-face {
+            font-family: 'Playfair Display';
+            src: url('https://assets.tastronaut.app/fonts/PlayfairDisplay-Bold.woff2') format('woff2');
+            font-weight: 500 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Nunito';
+            src: url('https://assets.tastronaut.app/fonts/Nunito-Regular.woff2') format('woff2');
+            font-weight: 400 700;
+            font-style: normal;
+            font-display: swap;
+        }
         :root {
             --bg-dark: #1A1614;
             --bg-surface: #2A2520;
@@ -169,6 +184,11 @@
     </style>
 </head>
 <body>
+    <script>
+        var reveal = function() { document.body.classList.add('fonts-loaded'); };
+        if (document.fonts) document.fonts.ready.then(reveal);
+        setTimeout(reveal, 1000);
+    </script>
     <header>
         <div class="header-content">
             <a href="/" class="logo">Tastronaut</a>
