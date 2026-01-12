@@ -78,10 +78,10 @@
                     "ratingCount": "1"
                 },
                 "featureList": [
-                    "236 countries to explore",
-                    "1,180+ authentic recipes",
+                    "237 destinations to explore",
+                    "1,185+ authentic recipes",
                     "Step-by-step cooking instructions",
-                    "Achievement system",
+                    "60+ achievements to unlock",
                     "Dietary substitutions",
                     "Multiple languages"
                 ]
@@ -95,7 +95,7 @@
                         "name": "Is Tastronaut really free?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Yes! Tastronaut offers 12 countries with 60+ recipes completely free, forever. You can unlock all 236 countries and 1,180+ recipes with a one-time purchase—no subscriptions."
+                            "text": "Yes! Tastronaut offers 12 destinations with 60+ recipes completely free, forever. Unlock all 237 destinations and 1,185+ recipes with a one-time purchase—no subscriptions."
                         }
                     },
                     {
@@ -103,7 +103,7 @@
                         "name": "What kind of recipes are included?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Each country features 5 authentic recipes across categories: national dishes, street food, home cooking, holiday specialties, and desserts. All recipes include step-by-step instructions and dietary substitutions."
+                            "text": "Each destination features 5 authentic recipes: national dishes, street food, home cooking, holiday specialties, and desserts. All recipes include step-by-step instructions and dietary substitutions."
                         }
                     },
                     {
@@ -334,8 +334,7 @@
 
         /* Hero */
         .hero {
-            padding: 160px 0 80px;
-            text-align: center;
+            padding: 140px 0 60px;
             position: relative;
             overflow-x: clip;
         }
@@ -343,19 +342,26 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: min(700px, 150vw);
-            height: min(700px, 150vw);
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: min(700px, 80vw);
+            height: min(700px, 80vw);
             background: radial-gradient(circle, rgba(0, 168, 150, 0.15) 0%, rgba(232, 165, 75, 0.05) 40%, transparent 65%);
             pointer-events: none;
             animation: pulse-glow 8s ease-in-out infinite;
         }
 
         @keyframes pulse-glow {
-            0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
-            50% { opacity: 0.7; transform: translateX(-50%) scale(1.05); }
+            0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
+            50% { opacity: 0.7; transform: translateY(-50%) scale(1.05); }
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
         }
 
         .hero-content {
@@ -390,14 +396,11 @@
 
         .hero h1 {
             font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-            font-size: clamp(2.75rem, 6vw, 4rem);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 600;
             margin-bottom: 20px;
             line-height: 1.15;
             letter-spacing: -0.02em;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .hero h1 .highlight {
@@ -408,18 +411,144 @@
         }
 
         .hero p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            max-width: 520px;
-            margin: 0 auto 40px;
+            max-width: 480px;
+            margin: 0 0 32px;
             line-height: 1.7;
         }
 
         .store-buttons {
             display: flex;
             gap: 12px;
-            justify-content: center;
             flex-wrap: wrap;
+        }
+
+        /* Hero Phone Mockup */
+        .hero-phone {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone-frame {
+            position: relative;
+            width: 280px;
+            max-width: 100%;
+        }
+
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle at center, rgba(0, 168, 150, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: -1;
+        }
+
+        .phone-screen {
+            width: 100%;
+            border-radius: 44px;
+            box-shadow:
+                0 25px 80px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            background: var(--bg-surface);
+        }
+
+        .phone-screen img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Floating mini screenshots around phone */
+        .floating-screens {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .mini-screen {
+            position: absolute;
+            width: 120px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+
+        .mini-screen:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .mini-screen img {
+            width: 100%;
+            display: block;
+        }
+
+        .mini-screen.top-right {
+            top: 10%;
+            right: -30px;
+            transform: rotate(6deg);
+        }
+
+        .mini-screen.bottom-left {
+            bottom: 15%;
+            left: -40px;
+            transform: rotate(-8deg);
+        }
+
+        @media (max-width: 900px) {
+            .hero-layout {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 1;
+            }
+
+            .hero-phone {
+                order: 2;
+                margin-top: 20px;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .store-buttons {
+                justify-content: center;
+            }
+
+            .phone-frame {
+                width: 240px;
+            }
+
+            .mini-screen {
+                width: 90px;
+            }
+
+            .mini-screen.top-right {
+                right: 10%;
+            }
+
+            .mini-screen.bottom-left {
+                left: 10%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .floating-screens {
+                display: none;
+            }
         }
 
         .store-btn {
@@ -594,6 +723,111 @@
             line-height: 1.6;
         }
 
+        /* How It Works - Enhanced with images */
+        .steps-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .step:nth-child(even) {
+            direction: rtl;
+        }
+
+        .step:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .step-content {
+            text-align: left;
+        }
+
+        .step-number {
+            width: 52px;
+            height: 52px;
+            background: rgba(0, 168, 150, 0.08);
+            border: 2px solid var(--teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--teal);
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 168, 150, 0.15);
+        }
+
+        .step h3 {
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 400px;
+        }
+
+        .step-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .step-image img {
+            width: 200px;
+            border-radius: 28px;
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 800px) {
+            .step {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .step:nth-child(even) {
+                direction: ltr;
+            }
+
+            .step-content {
+                text-align: center;
+                order: 1;
+            }
+
+            .step-image {
+                order: 2;
+            }
+
+            .step-number {
+                margin: 0 auto 20px;
+            }
+
+            .step p {
+                max-width: none;
+                margin: 0 auto;
+            }
+
+            .step-image img {
+                width: 160px;
+            }
+        }
+
         /* Stats */
         .stats {
             padding: 60px 0;
@@ -729,6 +963,7 @@
         .cta .store-buttons {
             position: relative;
             z-index: 1;
+            justify-content: center;
         }
 
         /* Footer */
@@ -775,200 +1010,6 @@
             padding: 80px 0;
             position: relative;
             z-index: 1;
-        }
-
-        .steps-container {
-            position: relative;
-            margin-top: 48px;
-        }
-
-        /* Connector line between steps (desktop only) */
-        .steps-connector {
-            display: none;
-        }
-
-        @media (min-width: 801px) {
-            .steps-connector {
-                display: block;
-                position: absolute;
-                top: 44px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 60%;
-                height: 2px;
-                background: linear-gradient(90deg,
-                    transparent 0%,
-                    var(--teal) 15%,
-                    var(--teal) 50%,
-                    var(--teal) 85%,
-                    transparent 100%
-                );
-                opacity: 0.3;
-                z-index: 0;
-            }
-
-            .steps-connector::before,
-            .steps-connector::after {
-                content: '';
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 8px;
-                height: 8px;
-                background: var(--teal);
-                border-radius: 50%;
-                opacity: 0.5;
-            }
-
-            .steps-connector::before {
-                left: 0;
-            }
-
-            .steps-connector::after {
-                right: 0;
-            }
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            position: relative;
-            z-index: 1;
-        }
-
-        @media (max-width: 800px) {
-            .steps-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-        }
-
-        .step {
-            position: relative;
-        }
-
-        .step-card {
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 32px 24px 28px;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .step-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--teal), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .step-card:hover {
-            background: var(--glass-hover);
-            border-color: rgba(0, 168, 150, 0.25);
-            transform: translateY(-4px);
-        }
-
-        .step-card:hover::before {
-            opacity: 1;
-        }
-
-        .step-number {
-            width: 52px;
-            height: 52px;
-            background: rgba(0, 168, 150, 0.08);
-            border: 2px solid var(--teal);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--teal);
-            margin: 0 auto 20px;
-            position: relative;
-            box-shadow:
-                0 0 20px rgba(0, 168, 150, 0.15),
-                inset 0 0 12px rgba(0, 168, 150, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .step-card:hover .step-number {
-            box-shadow:
-                0 0 28px rgba(0, 168, 150, 0.3),
-                inset 0 0 16px rgba(0, 168, 150, 0.1);
-            border-color: var(--teal-light);
-            color: var(--teal-light);
-        }
-
-        .step-icon {
-            width: 56px;
-            height: 56px;
-            margin: 0 auto 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(0, 168, 150, 0.12) 0%, rgba(232, 165, 75, 0.08) 100%);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .step-icon svg {
-            width: 28px;
-            height: 28px;
-            color: var(--teal);
-            transition: all 0.3s ease;
-        }
-
-        .step-card:hover .step-icon {
-            background: linear-gradient(135deg, rgba(0, 168, 150, 0.18) 0%, rgba(232, 165, 75, 0.12) 100%);
-            transform: scale(1.05);
-        }
-
-        .step-card:hover .step-icon svg {
-            color: var(--teal-light);
-        }
-
-        .step h3 {
-            font-family: 'Nunito', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--text-primary);
-        }
-
-        .step p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.65;
-            max-width: 260px;
-            margin: 0 auto;
-        }
-
-        /* Mobile step connector */
-        @media (max-width: 800px) {
-            .step:not(:last-child)::after {
-                content: '';
-                position: absolute;
-                bottom: -14px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 2px;
-                height: 8px;
-                background: linear-gradient(180deg, var(--teal), transparent);
-                opacity: 0.3;
-            }
         }
 
         /* FAQ Section */
@@ -1084,32 +1125,51 @@
 
     <main>
         <section class="hero">
-            <div class="container hero-content">
-                <div class="hero-badge">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                    236 Countries to Explore
-                </div>
-                <h1>Travel the <span class="highlight">World</span> Through Your Kitchen</h1>
-                <p>Tap discover, land on any country, and cook authentic dishes from 236 destinations. 1,180+ recipes from every corner of Earth.</p>
-                <div class="store-buttons">
-                    <a href="#" class="store-btn">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                        </svg>
-                        <div class="store-text">
-                            <small>Download on the</small>
-                            <strong>App Store</strong>
+            <div class="container">
+                <div class="hero-layout">
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                            237 Destinations to Explore
                         </div>
-                    </a>
-                    <a href="#" class="store-btn">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-                        </svg>
-                        <div class="store-text">
-                            <small>Get it on</small>
-                            <strong>Google Play</strong>
+                        <h1>Discover. Cook. <span class="highlight">Explore.</span></h1>
+                        <p>Tap discover, land somewhere new, and cook authentic recipes from 237 destinations. No more decision fatigue—just culinary adventure.</p>
+                        <div class="store-buttons">
+                            <a href="#" class="store-btn">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                                </svg>
+                                <div class="store-text">
+                                    <small>Download on the</small>
+                                    <strong>App Store</strong>
+                                </div>
+                            </a>
+                            <a href="#" class="store-btn">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                                </svg>
+                                <div class="store-text">
+                                    <small>Get it on</small>
+                                    <strong>Google Play</strong>
+                                </div>
+                            </a>
                         </div>
-                    </a>
+                    </div>
+                    <div class="hero-phone">
+                        <div class="phone-frame">
+                            <div class="floating-screens">
+                                <div class="mini-screen top-right">
+                                    <img src="https://assets.tastronaut.app/images/dc17289cd5cb.webp" alt="Recipe list" loading="lazy">
+                                </div>
+                                <div class="mini-screen bottom-left">
+                                    <img src="https://assets.tastronaut.app/images/8fd6a5493835.webp" alt="Achievements" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="phone-screen">
+                                <img src="https://assets.tastronaut.app/images/dff6d281eaed.webp" alt="Tastronaut globe view - discover countries around the world">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1118,7 +1178,7 @@
             <div class="container">
                 <div class="section-header">
                     <h2>Your Culinary Adventure Awaits</h2>
-                    <p>Explore cuisines, track your progress, and become a global chef.</p>
+                    <p>Explore international cuisines, track your journey, and become a World Chef.</p>
                 </div>
                 <div class="features-grid">
                     <div class="feature-card">
@@ -1130,8 +1190,8 @@
                                 <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
                             </svg>
                         </div>
-                        <h3>Discover Countries</h3>
-                        <p>Tap discover and your rocket lands on a new destination. 236 countries and territories to explore.</p>
+                        <h3>Land Somewhere New</h3>
+                        <p>Tap discover and your rocket lands on a random destination. 237 countries and territories to explore.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
@@ -1201,53 +1261,35 @@
                     <h2>How It Works</h2>
                     <p>Your world cooking adventure in three simple steps.</p>
                 </div>
-                <div class="steps-container">
-                    <div class="steps-connector" aria-hidden="true"></div>
-                    <div class="steps-grid">
-                        <div class="step">
-                            <div class="step-card">
-                                <div class="step-number">1</div>
-                                <div class="step-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
-                                        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
-                                        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
-                                        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
-                                    </svg>
-                                </div>
-                                <h3>Tap Discover</h3>
-                                <p>Your rocket launches and lands on one of 236 countries. Each destination is a new culinary adventure.</p>
-                            </div>
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-content">
+                            <div class="step-number">1</div>
+                            <h3>Tap Discover</h3>
+                            <p>Your rocket launches and lands on one of 237 destinations. Each landing is a new culinary adventure waiting to be explored.</p>
                         </div>
-                        <div class="step">
-                            <div class="step-card">
-                                <div class="step-number">2</div>
-                                <div class="step-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/>
-                                        <line x1="6" x2="18" y1="17" y2="17"/>
-                                    </svg>
-                                </div>
-                                <h3>Cook a Recipe</h3>
-                                <p>Choose from 5 authentic dishes. Follow step-by-step instructions with substitutions for any diet.</p>
-                            </div>
+                        <div class="step-image">
+                            <img src="https://assets.tastronaut.app/images/51503f902bd6.webp" alt="Landing on Costa Rica" loading="lazy">
                         </div>
-                        <div class="step">
-                            <div class="step-card">
-                                <div class="step-number">3</div>
-                                <div class="step-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
-                                        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
-                                        <path d="M4 22h16"/>
-                                        <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
-                                        <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
-                                        <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
-                                    </svg>
-                                </div>
-                                <h3>Track Your Journey</h3>
-                                <p>Earn achievements, build cooking streaks, and explore every continent on Earth.</p>
-                            </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-content">
+                            <div class="step-number">2</div>
+                            <h3>Cook a Recipe</h3>
+                            <p>Choose from 5 authentic dishes per country. Follow step-by-step instructions with ingredient checklists and substitutions for any diet.</p>
+                        </div>
+                        <div class="step-image">
+                            <img src="https://assets.tastronaut.app/images/f4869a5e79be.webp" alt="Recipe ingredients checklist" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-content">
+                            <div class="step-number">3</div>
+                            <h3>Track Your Journey</h3>
+                            <p>Earn achievements, build cooking streaks, and explore every continent on Earth. Your culinary passport awaits.</p>
+                        </div>
+                        <div class="step-image">
+                            <img src="https://assets.tastronaut.app/images/8fd6a5493835.webp" alt="Achievements screen" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -1259,11 +1301,11 @@
                 <div class="stats-container">
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <h3>236</h3>
-                            <p>Countries</p>
+                            <h3>237</h3>
+                            <p>Destinations</p>
                         </div>
                         <div class="stat-item">
-                            <h3>1,180+</h3>
+                            <h3>1,185+</h3>
                             <p>Recipes</p>
                         </div>
                         <div class="stat-item">
@@ -1271,7 +1313,7 @@
                             <p>Continents</p>
                         </div>
                         <div class="stat-item">
-                            <h3>50+</h3>
+                            <h3>60+</h3>
                             <p>Achievements</p>
                         </div>
                     </div>
@@ -1288,11 +1330,11 @@
                 <div class="faq-grid">
                     <div class="faq-item">
                         <h3>Is Tastronaut really free?</h3>
-                        <p>Yes! Tastronaut offers 12 countries with 60+ recipes completely free, forever. You can unlock all 236 countries and 1,180+ recipes with a one-time purchase. No subscriptions, no hidden fees.</p>
+                        <p>Yes! Tastronaut offers 12 destinations with 60+ recipes completely free, forever. Unlock all 237 destinations and 1,185+ recipes with a one-time purchase—no subscriptions.</p>
                     </div>
                     <div class="faq-item">
                         <h3>What kind of recipes are included?</h3>
-                        <p>Each country features 5 authentic recipes: a national dish, street food, home cooking, a holiday specialty, and a dessert. All recipes include step-by-step instructions and dietary substitutions.</p>
+                        <p>Each destination features 5 authentic recipes: a national dish, street food, home cooking, a holiday specialty, and a dessert. All recipes include step-by-step instructions and dietary substitutions.</p>
                     </div>
                     <div class="faq-item">
                         <h3>Can I use Tastronaut offline?</h3>
@@ -1310,8 +1352,8 @@
             <div class="container">
                 <div class="cta-card">
                     <div class="cta-badge">One-Time Purchase</div>
-                    <h2>Like 10+ Cookbooks in One App</h2>
-                    <p>Start free with 12 countries and 60+ recipes. Unlock everything for the price of a single cookbook. No subscriptions, ever.</p>
+                    <h2>Become a World Chef</h2>
+                    <p>Start free with 12 destinations and 60+ recipes. Unlock all 237 destinations for less than the price of a cookbook. No subscriptions, ever.</p>
                     <div class="store-buttons">
                         <a href="#" class="store-btn">
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1327,7 +1369,7 @@
                                 <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
                             </svg>
                             <div class="store-text">
-                                <small>Get it on</small>
+                                <small>Coming Soon</small>
                                 <strong>Google Play</strong>
                             </div>
                         </a>
